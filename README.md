@@ -1,4 +1,5 @@
 🛒 Blinkit Business Analytics Project | SQL + Power BI
+
 📌 Project Overview
 Blinkit is one of India's leading quick-commerce platforms, delivering groceries and daily essentials to customers within minutes. As order volumes grow, businesses need data-driven insights to improve customer retention, optimize delivery operations, maximize revenue, and enhance product performance.
 This project simulates a real-world business analytics engagement where transactional, customer, product, and delivery datasets were analyzed using MySQL and visualized through Power BI.
