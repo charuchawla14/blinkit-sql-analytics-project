@@ -17,16 +17,22 @@ The project addresses key business questions such as:
 
 🏗 Database Design
 A relational database was designed and implemented in MySQL using five interconnected tables:
+
 Customers
 Stores customer information including registration details, order behavior, and customer segmentation.
+
 Orders
 Contains transaction-level order details such as order value, delivery status, and payment method.
+
 Order Items
 Captures product-level purchase information for each order.
+
 Products
 Maintains product catalog information including category, pricing, and margin percentages.
+
 Delivery Performance
 Tracks delivery partner performance, delivery time, distance, and delay reasons.
+
 Data Model
 Customers → Orders → Order_Items → Products
 Orders → Delivery_Performance
@@ -38,23 +44,27 @@ Customer Analytics
 •	Repeat customer analysis
 •	Customer segment performance evaluation
 •	Revenue contribution by customer segment
+
 Sales Analytics
 •	Revenue analysis
 •	Order volume analysis
 •	Payment method distribution
 •	Category-wise sales performance
 •	Order status monitoring
+
 Product Analytics
 •	Top-selling products
 •	Revenue-generating products
 •	Product profitability analysis
 •	Category performance comparison
 •	Margin analysis
+
 Delivery Analytics
 •	Delivery partner performance
 •	Average delivery time analysis
 •	Delivery efficiency measurement
 •	Delayed order investigation
+
 Strategic Business Analytics
 •	Customer purchase behavior analysis
 •	Revenue concentration analysis
@@ -94,14 +104,17 @@ Executive Overview
 •	Order KPIs
 •	Customer KPIs
 •	Delivery KPIs
+
 Customer Analytics
 •	Customer segmentation analysis
 •	Top customer identification
 •	Customer Lifetime Value tracking
+
 Product Analytics
 •	Product performance monitoring
 •	Category-wise revenue contribution
 •	Profitability analysis
+
 Delivery Analytics
 •	Delivery partner comparison
 •	Delivery efficiency tracking
