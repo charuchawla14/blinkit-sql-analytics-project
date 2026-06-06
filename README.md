@@ -1,197 +1,317 @@
-# 🛒 Blinkit Business Analytics Project | SQL + Power BI
+# 🛒 Blinkit Business Analytics | End-to-End Retail Analytics Project
 
-## 📌 Project Overview
+## 📖 Project Overview
 
-Blinkit is one of India's leading quick-commerce platforms, delivering groceries and daily essentials to customers within minutes. As order volumes grow, businesses need data-driven insights to improve customer retention, optimize delivery operations, maximize revenue, and enhance product performance.
+This project demonstrates an end-to-end Business Intelligence and Retail Analytics solution built using SQL and Power BI.
 
-This project simulates a real-world business analytics engagement where transactional, customer, product, and delivery datasets were analyzed using **MySQL** and visualized through **Power BI**.
+The goal was to analyze customer behavior, sales performance, product trends, and delivery operations for a Blinkit-style quick-commerce business and transform raw transactional data into actionable business insights.
 
-The objective was to transform raw operational data into actionable business insights that can support strategic decision-making across customer management, sales growth, inventory planning, and delivery efficiency.
+The project follows a complete analytics workflow:
 
+**Data Collection → SQL Analysis → KPI Development → Business Insights → Interactive Power BI Dashboard**
 
-## 🎯 Business Objectives
+---
 
-The project addresses key business questions such as:
+# 🎯 Business Objectives
 
-* Who are the most valuable customers?
+The project was designed to answer key business questions:
+
 * Which customer segments generate the highest revenue?
-* What is the estimated Customer Lifetime Value (CLV)?
-* Which products and categories contribute most to sales?
-* How effective are current delivery operations?
-* Which payment methods are preferred by customers?
-* What factors influence overall business performance?
+* What products and categories drive business growth?
+* How effective are delivery operations?
+* What is the average customer lifetime value?
+* Which KPIs should management monitor regularly?
+* What opportunities exist to improve customer retention and operational efficiency?
 
+---
 
-## 🏗 Database Design
+# 🛠️ Tools & Technologies
 
-A relational database was designed and implemented in MySQL using five interconnected tables:
+| Tool        | Purpose                           |
+| ----------- | --------------------------------- |
+| SQL (MySQL) | Data Cleaning & Business Analysis |
+| Power BI    | Dashboard Development             |
+| DAX         | KPI & Measure Creation            |
+| Excel/CSV   | Data Source                       |
+| GitHub      | Project Documentation             |
+
+---
+
+# 📂 Dataset Overview
+
+The project consists of five interconnected business datasets:
 
 ### Customers
 
-Stores customer information including registration details, order behavior, and customer segmentation.
+Customer demographics, segments, order behavior and spending patterns.
 
 ### Orders
 
-Contains transaction-level order details such as order value, delivery status, and payment method.
+Order-level transaction data including payment methods and delivery information.
 
 ### Order Items
 
-Captures product-level purchase information for each order.
+Product-level sales records for each order.
 
 ### Products
 
-Maintains product catalog information including category, pricing, and margin percentages.
+Product catalog containing categories, pricing and margin information.
 
 ### Delivery Performance
 
-Tracks delivery partner performance, delivery time, distance, and delay reasons.
+Delivery status, distance travelled and operational performance metrics.
 
-### Data Model
+---
 
-Customers → Orders → Order_Items → Products
+# 📊 SQL Business Analysis
 
-Orders → Delivery_Performance
-
-
-##📊 Dashboard Overview
-
-The Power BI solution consists of three interactive dashboard pages designed for different business stakeholders.
-
-1️⃣ Executive Overview Dashboard
-
-Provides a high-level view of overall business performance.
-
-Key KPIs:
-
-Total Revenue
-Total Orders
-Total Customers
-Average Order Value (AOV)
-Total Units Sold
-Average Delivery Time
-
-Business Visuals:
-
-Revenue by Category
-Top Products by Revenue
-Payment Method Distribution
-Revenue by Customer Segment
-Order Status Overview
-Dashboard Preview
-
-
-2️⃣ Customer Analytics Dashboard
-
-Focused on understanding customer behavior and value generation.
-
-Key KPIs:
-
-Total Customers
-Repeat Customers
-Average Customer Lifetime Value (CLV)
-Highest Spending Customer
-
-Business Visuals:
-
-Customer Segment Distribution
-Revenue by Customer Segment
-Customer Lifetime Value by Segment
-Revenue Contribution by Area
-Dashboard Preview
-
-
-3️⃣ Delivery & Product Analytics Dashboard
-
-Focused on operational efficiency and product performance.
-
-Key KPIs:
-
-Total Deliveries
-On-Time Deliveries
-Delivery Success Rate
-Average Delivery Time
-
-Business Visuals:
-
-Delivery Status Analysis
-Product Revenue by Category
-Top Products by Quantity Sold
-Revenue by Payment Method
-Average Delivery Time by Delivery Status
-Dashboard Preview
-
-## 📊 Key Insights Generated
-
-### Customer Insights
-
-* Identified high-value customers contributing significantly to overall revenue.
-* Estimated Customer Lifetime Value (CLV) to support retention strategies.
-* Analyzed repeat purchase behavior across customer segments.
-
-### Sales Insights
-
-* Evaluated total revenue generated through platform transactions.
-* Determined preferred customer payment methods.
-* Measured sales performance across product categories.
-
-### Product Insights
-
-* Identified top revenue-generating products.
-* Compared category-wise sales performance.
-* Highlighted products with the highest profit margins.
-
-### Operational Insights
-
-* Assessed delivery partner efficiency.
-* Measured average delivery time across deliveries.
-* Investigated causes of delayed deliveries.
-
-
-## 🛠 Tools & Technologies
-
-| Tool        | Purpose                                 |
-| ----------- | --------------------------------------- |
-| MySQL       | Database Design & Querying              |
-| SQL         | Data Analysis                           |
-| Power BI    | Dashboard Development                   |
-| Excel / CSV | Data Source                             |
-| GitHub      | Project Documentation & Version Control |
-
-
-## 📈 Power BI Dashboard Features
-
-The interactive dashboard provides:
-
-### Executive Overview
-
-* Revenue KPIs
-* Order KPIs
-* Customer KPIs
-* Delivery KPIs
+A comprehensive SQL analysis was performed to generate actionable business insights.
 
 ### Customer Analytics
 
-* Customer segmentation analysis
-* Top customer identification
-* Customer Lifetime Value tracking
+* Top High-Value Customers
+* Customer Lifetime Value (CLV)
+* Repeat Customer Analysis
+* Revenue Contribution by Customer Segment
+* Average Order Value by Segment
+
+### Sales Analytics
+
+* Total Revenue Analysis
+* Payment Method Distribution
+* Order Status Analysis
+* Category-wise Revenue Analysis
+* Business Performance Overview
 
 ### Product Analytics
 
-* Product performance monitoring
-* Category-wise revenue contribution
-* Profitability analysis
+* Top Revenue Generating Products
+* Most Frequently Ordered Products
+* Category Performance Analysis
+* Profit Margin Analysis
 
 ### Delivery Analytics
 
-* Delivery partner comparison
-* Delivery efficiency tracking
-* Delay analysis
+* Delivery Partner Performance
+* Delivery Efficiency Analysis
+* Delivery Status Monitoring
 
+### Advanced Business Analytics
 
-## 👨‍💻 Author
+* Customer Purchase Behavior
+* Category Profitability
+* Top Orders Analysis
+* Business KPI Reporting
 
-**Charu Chawla**
+---
 
-Aspiring Data Analyst | SQL | Power BI | Business Analytics | Data Visualization
+# 📈 Key Business KPIs
 
-Passionate about transforming data into actionable business insights and building analytical solutions that drive measurable business outcomes.
+The dashboard tracks several critical business metrics:
+
+### Revenue Metrics
+
+* Total Revenue
+* Average Order Value (AOV)
+* Revenue by Category
+* Revenue by Customer Segment
+
+### Customer Metrics
+
+* Total Customers
+* Repeat Customers
+* Customer Lifetime Value (CLV)
+* Highest Spending Customer
+
+### Product Metrics
+
+* Total Units Sold
+* Product Revenue Contribution
+* Category Performance
+
+### Delivery Metrics
+
+* Total Deliveries
+* On-Time Deliveries
+* Delivery Success Rate
+* Average Delivery Time
+
+---
+
+# 📊 Power BI Dashboard
+
+The Power BI solution consists of three interactive dashboard pages.
+
+---
+
+## 1️⃣ Executive Overview Dashboard
+
+Provides a high-level summary of overall business performance.
+
+### KPIs
+
+* Total Revenue
+* Total Orders
+* Total Customers
+* Average Order Value
+* Total Units Sold
+* Average Delivery Time
+
+### Visuals
+
+* Revenue by Category
+* Top Products by Revenue
+* Revenue by Customer Segment
+* Payment Method Distribution
+* Order Status Overview
+
+### Dashboard Preview
+
+```markdown
+![Executive Overview](screenshots/executive_overview.png)
+```
+
+---
+
+## 2️⃣ Customer Analytics Dashboard
+
+Provides insights into customer behavior and purchasing patterns.
+
+### KPIs
+
+* Total Customers
+* Repeat Customers
+* Average CLV
+* Highest Spending Customer
+
+### Visuals
+
+* Revenue by Customer Segment
+* Customer Segment Distribution
+* Customer Lifetime Value Analysis
+* Revenue by Area
+
+### Dashboard Preview
+
+```markdown
+![Customer Analytics](screenshots/customer_analytics.png)
+```
+
+---
+
+## 3️⃣ Delivery & Product Analytics Dashboard
+
+Focuses on operational efficiency and product performance.
+
+### KPIs
+
+* Total Deliveries
+* On-Time Deliveries
+* Delivery Success Rate
+* Average Delivery Time
+
+### Visuals
+
+* Delivery Status Analysis
+* Product Revenue by Category
+* Top Products by Quantity Sold
+* Revenue by Payment Method
+* Delivery Time Analysis
+
+### Dashboard Preview
+
+```markdown
+![Delivery Analytics](screenshots/delivery_product_analytics.png)
+```
+
+---
+
+# 💡 Key Insights Generated
+
+### Customer Insights
+
+* Repeat customers contribute significantly to overall revenue.
+* Premium and Regular customer segments generate the highest business value.
+* Customer Lifetime Value varies across customer segments.
+
+### Product Insights
+
+* A small number of products contribute disproportionately to total sales.
+* Certain product categories consistently outperform others in revenue generation.
+* High-margin products present opportunities for targeted promotions.
+
+### Sales Insights
+
+* Digital payment methods dominate transactions.
+* Revenue concentration exists within specific customer segments.
+* Category-level analysis helps identify growth opportunities.
+
+### Delivery Insights
+
+* Most deliveries are completed successfully within expected timelines.
+* Delivery performance directly impacts customer experience.
+* Operational KPIs help identify areas for process improvement.
+
+---
+
+# 🏗️ Project Structure
+
+```text
+Blinkit-Business-Analytics/
+│
+├── datasets/
+│   ├── customers.csv
+│   ├── orders.csv
+│   ├── order_items.csv
+│   ├── products.csv
+│   └── delivery_performance.csv
+│
+├── sql/
+│   ├── 01_database_setup.sql
+│   ├── 02_data_import.sql
+│   ├── 03_table_creation.sql
+│   └── 04_business_analysis.sql
+│
+├── dashboard/
+│   └── blinkit_dashboard.pbix
+│
+├── screenshots/
+│   ├── executive_overview.png
+│   ├── customer_analytics.png
+│   └── delivery_product_analytics.png
+│
+└── README.md
+```
+
+---
+
+# 🚀 Business Impact
+
+This project demonstrates how data analytics can help retail and quick-commerce businesses:
+
+* Improve customer retention
+* Optimize product strategy
+* Monitor operational efficiency
+* Track business KPIs
+* Enhance delivery performance
+* Support data-driven decision making
+
+---
+
+# 👨‍💻 Skills Demonstrated
+
+* SQL Querying & Joins
+* Data Cleaning & Transformation
+* Business KPI Development
+* Customer Analytics
+* Product Analytics
+* Sales Analytics
+* Power BI Dashboard Design
+* DAX Measures
+* Business Intelligence Reporting
+* Data Storytelling
+
+---
+
+## ⭐ If you found this project useful, consider giving it a star!
+
