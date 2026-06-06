@@ -53,46 +53,72 @@ Customers → Orders → Order_Items → Products
 Orders → Delivery_Performance
 
 
-## 🔍 Analytical Areas Covered
+📊 Dashboard Overview
 
-### Customer Analytics
+The Power BI solution consists of three interactive dashboard pages designed for different business stakeholders.
 
-* High-value customer identification
-* Customer Lifetime Value estimation
-* Repeat customer analysis
-* Customer segment performance evaluation
-* Revenue contribution by customer segment
+1️⃣ Executive Overview Dashboard
 
-### Sales Analytics
+Provides a high-level view of overall business performance.
 
-* Revenue analysis
-* Order volume analysis
-* Payment method distribution
-* Category-wise sales performance
-* Order status monitoring
+Key KPIs:
 
-### Product Analytics
+Total Revenue
+Total Orders
+Total Customers
+Average Order Value (AOV)
+Total Units Sold
+Average Delivery Time
 
-* Top-selling products
-* Revenue-generating products
-* Product profitability analysis
-* Category performance comparison
-* Margin analysis
+Business Visuals:
 
-### Delivery Analytics
+Revenue by Category
+Top Products by Revenue
+Payment Method Distribution
+Revenue by Customer Segment
+Order Status Overview
+Dashboard Preview
 
-* Delivery partner performance
-* Average delivery time analysis
-* Delivery efficiency measurement
-* Delayed order investigation
 
-### Strategic Business Analytics
+2️⃣ Customer Analytics Dashboard
 
-* Customer purchase behavior analysis
-* Revenue concentration analysis
-* Product category valuation
-* Business performance benchmarking
+Focused on understanding customer behavior and value generation.
 
+Key KPIs:
+
+Total Customers
+Repeat Customers
+Average Customer Lifetime Value (CLV)
+Highest Spending Customer
+
+Business Visuals:
+
+Customer Segment Distribution
+Revenue by Customer Segment
+Customer Lifetime Value by Segment
+Revenue Contribution by Area
+Dashboard Preview
+
+
+3️⃣ Delivery & Product Analytics Dashboard
+
+Focused on operational efficiency and product performance.
+
+Key KPIs:
+
+Total Deliveries
+On-Time Deliveries
+Delivery Success Rate
+Average Delivery Time
+
+Business Visuals:
+
+Delivery Status Analysis
+Product Revenue by Category
+Top Products by Quantity Sold
+Revenue by Payment Method
+Average Delivery Time by Delivery Status
+Dashboard Preview
 
 ## 📊 Key Insights Generated
 
