@@ -1,262 +1,132 @@
-# 🛒 Blinkit Business Analytics | End-to-End Retail Analytics Project
+# 🛒 Blinkit Business Analytics | End-to-End Retail & Delivery Analytics Project
 
-## 📖 Project Overview
+## 📌 Executive Summary
 
-This project demonstrates an end-to-end Business Intelligence and Retail Analytics solution built using SQL and Power BI.
+This project analyzes 1,061+ orders across a Blinkit-style quick-commerce business to uncover customer, product, and delivery performance patterns using **SQL (MySQL)** and **Power BI**.
 
-The goal was to analyze customer behavior, sales performance, product trends, and delivery operations for a Blinkit-style quick-commerce business and transform raw transactional data into actionable business insights.
+**Headline Findings:**
+- **Repeat customers (94.2% of the base) generate 99.47% of total revenue** — retention, not acquisition, is the dominant growth lever
+- **69.84% of orders are delivered on time**, but a data quality investigation revealed **46.7% of "On Time" orders also log a delay reason** — an internal inconsistency documented rather than papered over
+- **Delivery delay rate does NOT increase with distance** — Under-2km orders (33.07% delayed) actually delay *more* than 2–5km orders (28.49%), challenging the assumption that distance drives delays
+- **Premium customers receive a slightly lower on-time rate (68.69%) than Inactive customers (70.59%)** — delivery is not currently segment-prioritized, a gap worth flagging for a retention-focused business
 
-The project follows a complete analytics workflow:
-
-**Data Collection → SQL Analysis → KPI Development → Business Insights → Interactive Power BI Dashboard**
-
----
-
-# 🎯 Business Objectives
-
-The project was designed to answer key business questions:
-
-* Which customer segments generate the highest revenue?
-* What products and categories drive business growth?
-* How effective are delivery operations?
-* What is the average customer lifetime value?
-* Which KPIs should management monitor regularly?
-* What opportunities exist to improve customer retention and operational efficiency?
+➡️ **Recommendation**: Given revenue is overwhelmingly retention-driven, and Premium customers currently get no delivery-priority advantage, introducing SLA prioritization for high-value segments could directly protect the 99.47% revenue base this business depends on.
 
 ---
 
-# 🛠️ Tools & Technologies
+## 🎯 Business Objectives
 
-| Tool        | Purpose                           |
-| ----------- | --------------------------------- |
-| SQL (MySQL) | Data Cleaning & Business Analysis |
-| Power BI    | Dashboard Development             |
-| DAX         | KPI & Measure Creation            |
-| Excel/CSV   | Data Source                       |
-| GitHub      | Project Documentation             |
+- Which customer segments generate the highest revenue, and is that revenue concentrated or spread out?
+- What products and categories drive growth, and where is margin being left on the table?
+- How reliable is delivery performance, and what actually predicts a delay?
+- Is delivery experience consistent across customer segments — and does it match business priorities?
+- What data quality issues exist in the source data, and how should they be handled honestly?
 
 ---
 
-# 📂 Dataset Overview
+## 🛠️ Tools & Technologies
 
-The project consists of five interconnected business datasets:
-
-### Customers
-
-Customer demographics, segments, order behavior and spending patterns.
-
-### Orders
-
-Order-level transaction data including payment methods and delivery information.
-
-### Order Items
-
-Product-level sales records for each order.
-
-### Products
-
-Product catalog containing categories, pricing and margin information.
-
-### Delivery Performance
-
-Delivery status, distance travelled and operational performance metrics.
+| Tool | Purpose |
+|---|---|
+| SQL (MySQL) | Data cleaning, transformation, business analysis |
+| Power BI | Dashboard development |
+| DAX | KPI & measure creation |
+| Excel/CSV | Data source |
+| GitHub | Project documentation |
 
 ---
 
-# 📊 SQL Business Analysis
+## 📂 Dataset Overview
 
-A comprehensive SQL analysis was performed to generate actionable business insights.
+Five interconnected tables: `customers`, `orders`, `order_items`, `products`, `delivery_performance`.
+
+**Relationship flow:** `customers → orders → order_items → products` and `orders → delivery_performance`
+
+---
+
+## 🧹 Data Cleaning & Assumptions
+
+Real datasets are messy — here's what was found and how it was handled, rather than silently fixed:
+
+**1. Negative delivery times**
+336 rows in `delivery_performance` had impossible negative `delivery_time_minutes` values. These were corrected using `ABS()` under the assumption that they represented a sign error rather than a meaningful negative duration (e.g., early delivery). This assumption is documented here rather than hidden.
+
+**2. Delay-reason data limitation**
+The `reasons_if_delayed` column contains only two distinct values across the entire dataset: **"Traffic"** or blank. No other cause (weather, partner availability, stock issues) is ever logged, which limits true root-cause analysis for delays.
+
+**3. Status/reason inconsistency (preserved, not corrected)**
+346 of 741 "On Time" orders (**46.7%**) also list "Traffic" as a delay reason — logically inconsistent, since a delay reason shouldn't exist on an on-time order. Rather than guessing which field was wrong and silently editing it, this was preserved as-is and is flagged here as a genuine data limitation. This pattern, combined with only one reason value ever appearing, suggests the dataset may be synthetically generated rather than reflective of live operational logging.
+
+---
+
+## 📊 SQL Business Analysis
 
 ### Customer Analytics
-
-* Top High-Value Customers
-* Customer Lifetime Value (CLV)
-* Repeat Customer Analysis
-* Revenue Contribution by Customer Segment
-* Average Order Value by Segment
+- Top high-value customers by total spend
+- Customer Lifetime Value (CLV) estimation
+- Repeat vs. one-time customer revenue concentration
+- On-time delivery rate by customer segment
 
 ### Sales Analytics
-
-* Total Revenue Analysis
-* Payment Method Distribution
-* Order Status Analysis
-* Category-wise Revenue Analysis
-* Business Performance Overview
+- Category-wise revenue performance
+- Payment method distribution
+- Orders above average order value (subquery-based)
 
 ### Product Analytics
-
-* Top Revenue Generating Products
-* Most Frequently Ordered Products
-* Category Performance Analysis
-* Profit Margin Analysis
+- Top revenue-generating products
+- Category margin vs. order volume (profitability opportunity analysis)
 
 ### Delivery Analytics
-
-* Delivery Partner Performance
-* Delivery Efficiency Analysis
-* Delivery Status Monitoring
-
-### Advanced Business Analytics
-
-* Customer Purchase Behavior
-* Category Profitability
-* Top Orders Analysis
-* Business KPI Reporting
+- Overall on-time vs. delayed percentage
+- Delay rate by distance band
+- Delay rate by hour of day
+- Delivery reason data-quality cross-tab
 
 ---
 
-# 📈 Key Business KPIs
-
-The dashboard tracks several critical business metrics:
-
-### Revenue Metrics
-
-* Total Revenue
-* Average Order Value (AOV)
-* Revenue by Category
-* Revenue by Customer Segment
-
-### Customer Metrics
-
-* Total Customers
-* Repeat Customers
-* Customer Lifetime Value (CLV)
-* Highest Spending Customer
-
-### Product Metrics
-
-* Total Units Sold
-* Product Revenue Contribution
-* Category Performance
-
-### Delivery Metrics
-
-* Total Deliveries
-* On-Time Deliveries
-* Delivery Success Rate
-* Average Delivery Time
-
----
-
-# 📊 Power BI Dashboard
-
-The Power BI solution consists of three interactive dashboard pages.
-
----
-
-## 1️⃣ Executive Overview Dashboard
-
-Provides a high-level summary of overall business performance.
-
-### KPIs
-
-* Total Revenue
-* Total Orders
-* Total Customers
-* Average Order Value
-* Total Units Sold
-* Average Delivery Time
-
-### Visuals
-
-* Revenue by Category
-* Top Products by Revenue
-* Revenue by Customer Segment
-* Payment Method Distribution
-* Order Status Overview
-
-### Dashboard Preview
-
-```markdown
-![Executive Overview](screenshots/executive_overview.png)
-```
-
----
-
-## 2️⃣ Customer Analytics Dashboard
-
-Provides insights into customer behavior and purchasing patterns.
-
-### KPIs
-
-* Total Customers
-* Repeat Customers
-* Average CLV
-* Highest Spending Customer
-
-### Visuals
-
-* Revenue by Customer Segment
-* Customer Segment Distribution
-* Customer Lifetime Value Analysis
-* Revenue by Area
-
-### Dashboard Preview
-
-```markdown
-![Customer Analytics](screenshots/customer_analytics.png)
-```
-
----
-
-## 3️⃣ Delivery & Product Analytics Dashboard
-
-Focuses on operational efficiency and product performance.
-
-### KPIs
-
-* Total Deliveries
-* On-Time Deliveries
-* Delivery Success Rate
-* Average Delivery Time
-
-### Visuals
-
-* Delivery Status Analysis
-* Product Revenue by Category
-* Top Products by Quantity Sold
-* Revenue by Payment Method
-* Delivery Time Analysis
-
-### Dashboard Preview
-
-```markdown
-![Delivery Analytics](screenshots/delivery_product_analytics.png)
-```
-
----
-
-# 💡 Key Insights Generated
+## 💡 Key Insights Generated (with real numbers)
 
 ### Customer Insights
+- **Repeat customers are 94.2% of the customer base and generate 99.47% of total revenue** (₹28.87M of ₹29.03M), while one-time customers (5.8% of base) contribute just 0.53% — revenue is almost entirely retention-driven, not acquisition-driven.
+- On-time delivery rate is nearly flat across segments (68.49%–70.59%), with **Premium customers (68.69%) receiving a lower on-time rate than Inactive customers (70.59%)** — delivery prioritization is not currently segment-aware.
 
-* Repeat customers contribute significantly to overall revenue.
-* Premium and Regular customer segments generate the highest business value.
-* Customer Lifetime Value varies across customer segments.
+### Delivery & Data Quality Insights
+- **69.84% of all orders (741 of 1,061) were delivered on time**; 20.92% were slightly delayed and 9.24% significantly delayed.
+- **Delay rate does not scale with distance** — Under-2km orders delayed at 33.07% vs. 28.49% for 2–5km orders, suggesting delays stem from factors other than distance (e.g., order prep time or partner allocation), not distance itself.
+- **Delay rate is stable across all 24 hours of the day** (27%–35% range, no clear peak), pointing to a systemic operational pattern rather than a rush-hour traffic problem.
+- **Only one delay reason ("Traffic") is ever logged**, and it appears on 46.7% of on-time orders too — a documented data limitation that constrains how far root-cause analysis can go on this dataset.
 
-### Product Insights
-
-* A small number of products contribute disproportionately to total sales.
-* Certain product categories consistently outperform others in revenue generation.
-* High-margin products present opportunities for targeted promotions.
-
-### Sales Insights
-
-* Digital payment methods dominate transactions.
-* Revenue concentration exists within specific customer segments.
-* Category-level analysis helps identify growth opportunities.
-
-### Delivery Insights
-
-* Most deliveries are completed successfully within expected timelines.
-* Delivery performance directly impacts customer experience.
-* Operational KPIs help identify areas for process improvement.
+### Product & Sales Insights
+- Revenue is concentrated in a small number of top categories and products (e.g., Dairy & Breakfast ~₹146.8K vs. Pharmacy ~₹145.3K — closely matched top two categories worth deeper margin comparison).
+- Orders above the average order value disproportionately reflect high-value/premium purchasing behavior.
+- Digital payment methods make up a majority of transactions (see dashboard for exact split).
 
 ---
 
-# 🏗️ Project Structure
+## 📊 Power BI Dashboard
 
-```text
+Three interactive dashboard pages:
+
+### 1️⃣ Executive Overview
+Total Revenue, Total Orders, Total Customers, AOV, Units Sold, Avg. Delivery Time — with Revenue by Category, Top Products, Revenue by Segment, Payment Method Distribution.
+
+![Executive Overview](screenshots/executive_overview.png)
+
+### 2️⃣ Customer Analytics
+Total/Repeat Customers, Avg. CLV, Highest Spending Customer — with Segment Revenue, CLV Analysis, Revenue by Area.
+
+![Customer Analytics](screenshots/customer_analytics.png)
+
+### 3️⃣ Delivery & Product Analytics
+Total Deliveries, On-Time Rate, Avg. Delivery Time, Delay Rate by Distance/Hour — with Delivery Status Analysis, Product Revenue by Category.
+
+![Delivery Analytics](screenshots/delivery_product_analytics.png)
+
+---
+
+## 🏗️ Project Structure
+
+```
 Blinkit-Business-Analytics/
 │
 ├── datasets/
@@ -268,9 +138,10 @@ Blinkit-Business-Analytics/
 │
 ├── sql/
 │   ├── 01_database_setup.sql
-│   ├── 02_data_import.sql
-│   ├── 03_table_creation.sql
-│   └── 04_business_analysis.sql
+│   ├── 02_table_creation.sql
+│   ├── 03_data_import.sql
+│   ├── 04_business_analysis.sql
+│   └── 05_delivery_and_data_quality_analysis.sql
 │
 ├── dashboard/
 │   └── blinkit_dashboard.pbix
@@ -285,33 +156,22 @@ Blinkit-Business-Analytics/
 
 ---
 
-# 🚀 Business Impact
+## 🚀 Business Impact
 
-This project demonstrates how data analytics can help retail and quick-commerce businesses:
+This project demonstrates how a retail/quick-commerce business could use its own transactional data to:
 
-* Improve customer retention
-* Optimize product strategy
-* Monitor operational efficiency
-* Track business KPIs
-* Enhance delivery performance
-* Support data-driven decision making
+- Recognize that retention, not acquisition, drives nearly all revenue — and protect it accordingly
+- Identify that delivery delays aren't explained by distance, redirecting root-cause investigation elsewhere
+- Catch a real data-logging inconsistency before it distorts decision-making
+- Spot a mismatch between customer value (Premium tier) and delivery service quality
 
 ---
 
-# 👨‍💻 Skills Demonstrated
+## 👨‍💻 Skills Demonstrated
 
-* SQL Querying & Joins
-* Data Cleaning & Transformation
-* Business KPI Development
-* Customer Analytics
-* Product Analytics
-* Sales Analytics
-* Power BI Dashboard Design
-* DAX Measures
-* Business Intelligence Reporting
-* Data Storytelling
-
----
-
-## ⭐ If you found this project useful, consider giving it a star!
+- SQL: joins, aggregate functions, `GROUP BY`, window functions (`OVER()`), `CASE WHEN` logic, subqueries, date/time functions
+- Data cleaning & documented assumption-making (not silent data alteration)
+- Business KPI development and quantified insight-writing
+- Power BI dashboard design across multiple linked pages
+- Data storytelling — connecting SQL output to business recommendations
 
