@@ -110,17 +110,14 @@ Three interactive dashboard pages:
 ### 1️⃣ Executive Overview
 Total Revenue, Total Orders, Total Customers, AOV, Units Sold, Avg. Delivery Time — with Revenue by Category, Top Products, Revenue by Segment, Payment Method Distribution.
 
-![Executive Overview](screenshots/executive_overview.png)
 
 ### 2️⃣ Customer Analytics
 Total/Repeat Customers, Avg. CLV, Highest Spending Customer — with Segment Revenue, CLV Analysis, Revenue by Area.
 
-![Customer Analytics](screenshots/customer_analytics.png)
 
 ### 3️⃣ Delivery & Product Analytics
 Total Deliveries, On-Time Rate, Avg. Delivery Time, Delay Rate by Distance/Hour — with Delivery Status Analysis, Product Revenue by Category.
 
-![Delivery Analytics](screenshots/delivery_product_analytics.png)
 
 ---
 
